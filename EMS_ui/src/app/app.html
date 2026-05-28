@@ -1,0 +1,30 @@
+<div class="layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">🏠 Estate Portal</h2>
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <a routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item" (click)="toggleResidents()">
+          <i class="fas fa-users"></i> Residents
+        </li>
+        @if (showResidents) {
+        <ul class="sub-menu">
+          <li><a routerLink="/residents">Resident List</a></li>
+          <li><a routerLink="/residents/create">Add Resident</a></li>
+        </ul>
+        }
+        <li class="nav-item">
+          <a routerLink="/rooms">Rooms</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

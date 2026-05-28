@@ -1,0 +1,20 @@
+<main class="main-content">
+    <header class="header">
+        <h1>Welcome, Admin</h1>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h3>Total Residents</h3>
+            <p>{{ totalResidents$ | async}}</p>
+        </div>
+        <div class="card">
+            <h3>Pending Requests</h3>
+            <p>{{ pendingRequests }}</p>
+        </div>
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>₹ {{ revenue$ | async}}</p>
+        </div>
+    </section>
+</main>

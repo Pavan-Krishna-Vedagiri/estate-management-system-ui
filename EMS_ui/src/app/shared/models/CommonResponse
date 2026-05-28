@@ -1,0 +1,7 @@
+export interface CommonResponse<T> {
+    responseId: string;
+    status: string;
+    message: string;
+    data: T;
+    timestamp: string; 
+}

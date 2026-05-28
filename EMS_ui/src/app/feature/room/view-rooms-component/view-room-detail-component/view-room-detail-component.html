@@ -1,0 +1,32 @@
+@if (room$ | async; as room) {
+<div class="room-block">
+    <h2>🏠 Room Details</h2>
+    <p><strong>Room ID:</strong> {{ room.roomId }}</p>
+    <p><strong>Property ID:</strong> {{ room.propertyId }}</p>
+</div>
+}
+
+<div class="residents-block">
+    @if(residents$ | async; as residents){
+        @if(residents.length != 0){
+            <h3>👥 Residents Living Here</h3>
+            @for(resident of residents; track resident.id){
+            <div class="resident-row">
+                <h4>{{ resident.firstName }} {{ resident.lastName }}</h4>
+                <p><strong>Email:</strong> {{ resident.email }}</p>
+                <p><strong>Phone:</strong> {{ resident.phoneNumber }}</p>
+                <p><strong>Occupation:</strong> {{ resident.occupationName }} at {{ resident.companyName }}</p>
+                <p><strong>Address:</strong>
+                    {{ resident.address.doorNo }}, {{ resident.address.street }},
+                    {{ resident.address.city }} - {{ resident.address.pincode }},
+                    {{ resident.address.country }}
+                </p>
+            </div>
+            }
+        }@else{
+        <h3>👥 No Residents / Free to book</h3>
+        }
+    }@else{
+    <h3>👥 No Residents / Free to book</h3>
+    }
+</div>

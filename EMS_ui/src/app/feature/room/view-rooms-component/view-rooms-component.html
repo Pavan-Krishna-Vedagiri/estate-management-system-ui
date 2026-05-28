@@ -1,0 +1,60 @@
+<h1>Rooms</h1>
+
+<div class="resident-list">
+    <table class="resident-table">
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <th>Floor</th>
+                <th>Total Beds</th>
+                <th>Available Beds</th>
+                <th>Sharing</th>
+                <th>Description</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (rooms$ | async; as rooms ) {
+            @for (room of rooms; track room.roomId) {
+            <tr>
+                <td>{{ room.roomNumber }}</td>
+                <td>{{ room.floor }}</td>
+                <td>{{ room.numberOfBeds }}</td>
+                <td><span [ngClass]="room.availableBeds == 0 ? ['danger-block', 'text-white'] : ['success-block', 'text-white']">
+                        {{room.availableBeds }}
+                    </span>
+                </td>
+                <td>{{ room.sharing }}</td>
+                <td>{{ room.description }}</td>
+                <td>
+                    <button class="edit-btn" (click)="getBookingDetail(room.roomId)">
+                        👁️ view
+                    </button>
+                </td>
+                <td>
+                    <button class="edit-btn" [disabled]="room.availableBeds == 0"
+                        [class.btn-disabled]="room.availableBeds == 0" (click)="bookRoom(room.roomId)">
+                        🛏️ Book Room
+                    </button>
+                </td>
+            </tr>
+            }
+            }@else {
+            <tr>
+                <td colspan="8" class="no-data">No Room for this property found</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@if(showForm){
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-btn" (click)="showForm = false">×</span>
+        <app-create-resident-component [roomId]="roomId"
+            (sendResidentDetails)="completeBookRoom($event)"></app-create-resident-component>
+    </div>
+</div>
+}

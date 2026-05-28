@@ -1,0 +1,49 @@
+<h1>Residents</h1>
+
+<div class="resident-list">
+    <table class="resident-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Occupation</th>
+                <th>Company</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (pagedResponse$ | async; as response ) {
+            @for (resident of response.items; track resident.id) {
+            <tr>
+                <td>{{ resident.id }}</td>
+                <td>{{ resident.firstName }} {{ resident.lastName }}</td>
+                <td>{{ resident.email }}</td>
+                <td>{{ resident.phoneNumber }}</td>
+                <td>{{ resident.occupationName }}</td>
+                <td>{{ resident.companyName }}</td>
+                <td>{{ resident.address.city }}</td>
+                <td>{{ resident.address.country }}</td>
+                <td>
+                    <button class="edit-btn" (click)="getResident(resident.id)">
+                        ✏️ Edit
+                    </button>
+                </td>
+            </tr>
+            }
+            <tr>
+                <td colspan="9">
+                    <app-paging-component [pageDetail]="response.pagingTo" (sendPageDetail)="getResidents($event)"></app-paging-component>
+                </td>
+            </tr>
+            }@else {
+            <tr>
+                <td colspan="9" class="no-data">No residents found</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,35 @@
+<div class="pagination-container">
+    <!-- First / Prev -->
+    <button class="first"
+     [disabled]="pageDetail.pageNumber === 0" 
+    (click)="sendPageDetailFn({pageNumber : 0})">⏮ First</button>
+    <button class="prev"
+    [disabled]="pageDetail.pageNumber <= 0" 
+    (click)="sendPageDetailFn({pageNumber : pageDetail.pageNumber-1})">« Prev</button>
+
+    <!-- Page info -->
+    <span class="page-info">
+        Page <span id="current-page">{{pageDetail.pageNumber+1}}</span> of <span id="total-pages">{{pageDetail.totalPages}}</span>
+    </span>
+
+    <!-- Next / Last -->
+    <button class="next" 
+    [disabled]="pageDetail.pageNumber + 1 >= pageDetail.totalPages" 
+    (click)="sendPageDetailFn({pageNumber : pageDetail.pageNumber+1})">Next »</button>
+
+    <button class="last" 
+    [disabled]="pageDetail.pageNumber + 1 >= pageDetail.totalPages" 
+    (click)="sendPageDetailFn({pageNumber : pageDetail.totalPages-1})">⏭ Last</button>
+
+    <!-- Items per page -->
+    <div class="page-size" >
+        <label for="size">Items per page:</label>
+        <select id="size" (change)="sendPageDetailFn({pageNumber : 0, pageSize: $any($event.target).value})">
+            <option value="5" [selected]="pageDetail.pageSize == 5">5</option>
+            <option value="10" [selected]="pageDetail.pageSize == 10">10</option>
+            <option value="20" [selected]="pageDetail.pageSize == 20">20</option>
+            <option value="50" [selected]="pageDetail.pageSize == 50">50</option>
+        </select>
+    </div>
+
+</div>

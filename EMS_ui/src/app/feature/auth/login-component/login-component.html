@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" (submit)="login()">
+    <label for="username">username : </label>
+    <input type="text" name="username" id="username" formControlName="username">
+
+    <br>
+
+    <label for="password">password : </label>
+    <input type="text" name="password" id="password" formControlName="password">
+
+    <br>
+
+    <input type="submit" value="login" [disabled]="loginForm.invalid">
+
+    <p style="color:red;">{{errorMessage}}</p>
+</form>

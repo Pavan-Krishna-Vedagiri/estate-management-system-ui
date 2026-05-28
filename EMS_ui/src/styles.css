@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+.text-danger {
+    color: #d60101ef !important;
+    font-weight: 700;
+}
+
+.text-success{
+    color: green !important;
+    font-weight: 700;
+}
+
+.text-white{
+    color: white !important;
+    font-weight: 700;
+}
+.btn-disabled{
+    background-color: rgba(0, 0, 0, 0.607) !important;
+}
+
+.success-block{
+    padding: 8px 12px !important;
+    background-color: rgb(18, 142, 18) !important;
+}
+
+.danger-block{
+    padding: 8px 12px !important;
+    background-color: rgb(255, 37, 37) !important;
+}

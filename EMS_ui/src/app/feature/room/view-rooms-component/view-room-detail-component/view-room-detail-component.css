@@ -1,0 +1,43 @@
+/* room-detail.component.css */
+.room-block {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0F5FDC, #4A90E2);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.room-block h2 {
+    margin-bottom: 12px;
+}
+
+.residents-block {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.residents-block h3 {
+    color: #0F5FDC;
+    margin-bottom: 16px;
+}
+
+.resident-row {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer !important;
+}
+
+.resident-row:hover {
+    transform: translateY(-4px);
+}
+
+.resident-row h4 {
+    margin-bottom: 8px;
+    color: #0F5FDC;
+}
