@@ -13,14 +13,14 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
 
   const reqClone = token ? req.clone(
     {
-      setHeaders : { "Authorization" : `bearer ${token}` }
+      setHeaders : { "Authorization" : `Bearer ${token}` }
     }
   ) : req;
 
   return next(reqClone).pipe(
     tap({
       error: (err) => {
-        if (err.status === 401) {
+        if (err.status === 401 || err.status === 403) {
           authService.logout();
           router.navigate(['/']);
         }

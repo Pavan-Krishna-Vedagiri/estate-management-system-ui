@@ -1,0 +1,45 @@
+<mark-as-paid-pop></mark-as-paid-pop>
+
+<div class="table-container">
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th>Invoice ID</th>
+        <th>Booking ID</th>
+        <th>Resident ID</th>
+        <th>Rent Amount</th>
+        <th>Month-Year</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (invoice of invoices$ | async; track invoice.invoiceId) {
+      <tr>
+        <td>{{ invoice.invoiceId }}</td>
+        <td>{{ invoice.bookingId }}</td>
+        <td>{{ invoice.residentId }}</td>
+        <td>{{ invoice.rentAmount | currency:'INR' }}</td>
+        <td>{{ invoice.monthYear }}</td>
+        <td>{{ invoice.dueDate | date:'yyyy-MM-dd' }}</td>
+        <td>
+          {{ invoice.status }}
+        </td>
+        <td>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9 12l2 2l4-4"></path>
+          </svg>
+        </td>
+      </tr>
+      }
+      @empty {
+      <tr>
+        <td colspan="7" class="no-data">No invoices found</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

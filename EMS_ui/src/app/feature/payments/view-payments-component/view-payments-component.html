@@ -1,0 +1,35 @@
+<div class="table-container">
+    <table class="payment-table">
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Invoice ID</th>
+                <th>Resident ID</th>
+                <th>Amount</th>
+                <th>Payment Date</th>
+                <th>Method</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(payment of payments$ | async ; track payment.paymentId){
+
+            <tr>
+                <td>{{ payment.paymentId }}</td>
+                <td>{{ payment.invoiceId }}</td>
+                <td>{{ payment.residentId }}</td>
+                <td>{{ payment.amount | currency:'INR' }}</td>
+                <td>{{ payment.paymentDate | date:'yyyy-MM-dd' }}</td>
+                <td>{{ payment.method }}</td>
+                <td>
+                    {{ payment.status }}
+                </td>
+            </tr>
+            }@empty {
+            <tr>
+                <td colspan="7" class="no-data">No payment records found</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

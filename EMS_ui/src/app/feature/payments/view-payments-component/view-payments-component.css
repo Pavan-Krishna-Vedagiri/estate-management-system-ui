@@ -1,0 +1,46 @@
+.table-container {
+    margin: 20px;
+    overflow-x: auto;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-table th,
+.payment-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.payment-table th {
+    background-color: #0F5FDC;
+    /* HCLTech blue */
+    color: #fff;
+    font-weight: bold;
+}
+
+.payment-table tr:hover {
+    background-color: #f5f7fa;
+}
+
+.status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
+
+.no-data {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}

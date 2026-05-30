@@ -1,0 +1,28 @@
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>Mark Invoice as Paid</h3>
+        <form id="paymentForm">
+            <label for="method">Mode of Transaction:</label>
+            <select id="method" required>
+                <option value="">Select</option>
+                <option value="Cash">Cash</option>
+                <option value="UPI">UPI</option>
+                <option value="CreditCard">Credit Card</option>
+                <option value="BankTransfer">Bank Transfer</option>
+            </select>
+
+            <div id="transactionIdField">
+                <label for="transactionId">Transaction ID:</label>
+                <input type="text" id="transactionId" name="transactionId" placeholder="Enter transaction ID">
+            </div>
+
+            <label for="desc">Description:</label>
+            <textarea id="desc" placeholder="Enter details..." required></textarea>
+
+            <div class="popup-actions">
+                <button type="button" onclick="style = 'display : none' ">Cancel</button>
+                <button type="submit">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>

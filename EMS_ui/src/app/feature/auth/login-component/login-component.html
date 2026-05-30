@@ -1,15 +1,21 @@
-<form [formGroup]="loginForm" (submit)="login()">
-    <label for="username">username : </label>
-    <input type="text" name="username" id="username" formControlName="username">
+<div class="login-container">
+    <div class="login-box">
+        <h2>Login</h2>
+        @if (errorMessage) {
+            <p style="color: red;">{{errorMessage}}</p>
+        }
+        <form class="form-group" [formGroup]="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username" formControlName="username"/>
+            </div>
 
-    <br>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password" formControlName="password"/>
+            </div>
 
-    <label for="password">password : </label>
-    <input type="text" name="password" id="password" formControlName="password">
-
-    <br>
-
-    <input type="submit" value="login" [disabled]="loginForm.invalid">
-
-    <p style="color:red;">{{errorMessage}}</p>
-</form>
+            <button type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+        </form>
+    </div>
+</div>

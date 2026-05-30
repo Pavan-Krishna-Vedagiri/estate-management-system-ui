@@ -29,7 +29,7 @@ export class ResidentListComponent {
   ngOnInit() {
     let page : PagingTo = {
       pageNumber : 0,
-      pageSize : 10,
+      pageSize : 5,
       totalElements : 0,
       totalPages : 0
     }

@@ -17,11 +17,11 @@ export class AuthService {
   }
 
   saveToken(token : string){
-    localStorage.setItem("Jwt-Token", token);
+    localStorage.setItem("token", token);
   }
   
   getToken() : string | null{
-    return localStorage.getItem("Jwt-Token");
+    return localStorage.getItem("token");
   }
 
   isLoginned() : boolean {
@@ -29,7 +29,7 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem("JWT-token")
+    localStorage.removeItem("token")
   }
 
 }

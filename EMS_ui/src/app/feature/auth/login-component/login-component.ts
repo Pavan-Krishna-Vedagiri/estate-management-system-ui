@@ -43,7 +43,6 @@ export class LoginComponent {
 
     this.authService.login(username, password).subscribe({
       next: (response: any) => {
-        alert(response.token)
         this.authService.saveToken(response.token);
         this.router.navigate(["/dashboard"]);
       },
