@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
-    apiBaseUrl: "http://localhost:8080/estate-management-portal/api/v1",
-    authUrl: "http://localhost:8080/estate-management-portal/api/v1/auth/login",
+    production: true,
+    apiBaseUrl: "https://estate-management-system-production.up.railway.app/estate-management-portal/api/v1",
+    authUrl: "https://estate-management-system-production.up.railway.app/estate-management-portal/api/v1/auth/login"
 }
